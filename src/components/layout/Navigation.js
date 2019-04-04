@@ -11,15 +11,15 @@ class Navigation extends Component {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/geo" className="nav-link">
-                        Geo Location{' '}
-                        <i className="fas fa-globe-europe"/>
-                    </Link>
-                </li>
-                <li className="nav-item">
                     <Link to="/city" className="nav-link">
                         City{' '}
                         <i className="fas fa-city"/>
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/geo" className="nav-link">
+                        Geo Location{' '}
+                        <i className="fas fa-globe-europe"/>
                     </Link>
                 </li>
             </ul>
