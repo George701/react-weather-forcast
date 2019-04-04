@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -14,7 +14,7 @@ class App extends Component {
     return (
         <Provider store={store}>
             {/*<BrowserRouter basename={process.env.PUBLIC_URL}>*/}
-            <BrowserRouter>
+            <HashRouter>
                 <div className="body-container">
                     <Switch>
                         <Route exact path="/" component={Index}/>
@@ -22,7 +22,7 @@ class App extends Component {
                         <Route exact path="/city" component={GetCity}/>
                     </Switch>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         </Provider>
     );
   }
