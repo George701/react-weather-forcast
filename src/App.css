@@ -153,6 +153,7 @@
   margin: 0 5px;
   padding: 10px;
   position: relative;
+  min-width: 6rem;
   cursor: pointer;
 }
 
@@ -198,16 +199,21 @@
 }
 
 .sun{
-  color: orangered;
+  color: #ffb74d;
 }
 
 .moon{
-  color: darkblue;
+  color: #90caf9;
 }
 
 .now{
   background-color: #DDDDDD;
 }
+
+.future-date i{
+  color: #fb8c00!important;
+}
+
 
 /*
 -----------------------------------------
@@ -337,3 +343,7 @@ footer .social{
                 Footer
 -----------------------------------------
 */
+
+@media  {
+  
+}

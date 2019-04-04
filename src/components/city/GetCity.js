@@ -84,10 +84,11 @@ GetCity.propTypes = {
     getCity: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-    c_data: state.weather.c_data,
-});
+// const mapStateToProps = (state) => ({
+//     c_data: state.weather.c_data,
+// });
 
 
 
-export default connect(mapStateToProps, {getCity})(GetCity);
+// export default connect(mapStateToProps, {getCity})(GetCity);
+export default connect((state) => {return {c_data: state.weather.c_data}},{getCity})(GetCity);

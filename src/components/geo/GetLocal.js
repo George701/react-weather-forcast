@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {getGeo} from '../../actions/weatherActions';
+import {getCity, getGeo} from '../../actions/weatherActions';
 
 import Loader from '../layout/Loader';
 import WeatherUnit from "../layout/WeatherUnit";
@@ -75,8 +75,9 @@ GetLocal.propTypes = {
     getGeo: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-    l_data: state.weather.l_data,
-});
+// const mapStateToProps = (state) => ({
+//     l_data: state.weather.l_data,
+// });
 
-export default connect(mapStateToProps, {getGeo})(GetLocal);
+// export default connect(mapStateToProps, {getGeo})(GetLocal);
+export default connect((state) => {return {l_data: state.weather.l_data,}},{getGeo})(GetLocal);

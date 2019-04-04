@@ -52,7 +52,7 @@ class WeatherUnit extends Component {
                             </Moment>
                         </span>
                         </div>
-                        <div className="wth-line weather">
+                        <div className="wth-line weather future-date">
                             {dnIcon(time, weather)}
                         </div>
                         <div className="wth-line temperature">
@@ -131,7 +131,7 @@ function formatDate(date) {
 }
 
 function dnIcon(time, weather){
-    if (time === '12:00:00' || time === '15:00:00'){
+    if (time === '09:00:00' || time === '12:00:00' || time === '15:00:00' || time === '18:00:00'){
         if(weather === 'Clouds'){
             return <i className="fas fa-cloud-sun sun"/>;
         }else if(weather === 'Rain'){
