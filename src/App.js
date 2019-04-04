@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
         <Provider store={store}>
-            <HashRouter>
+            <Router basename={process.env.PUBLIC_URL}>
                 <div className="body-container">
                     <Switch>
                         <Route exact path="/" component={Index}/>
@@ -20,7 +20,7 @@ class App extends Component {
                         <Route exact path="/city" component={GetCity}/>
                     </Switch>
                 </div>
-            </HashRouter>
+            </Router>
         </Provider>
     );
   }
