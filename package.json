@@ -2,7 +2,7 @@
   "name": "react-weather-forecast",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://George701.github.io/react-weather-forecast",
+  "homepage": "https://george701.github.io/react-weather-forecast/",
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^2.0.1",
