@@ -5,6 +5,7 @@ import GetLocal from './GetLocal';
 
 import Loader from '../layout/Loader';
 import Navigation from '../layout/Navigation';
+import Footer from '../layout/Footer';
 
 class GetGeo extends Component {
     // state={
@@ -37,6 +38,7 @@ class GetGeo extends Component {
                                 lon={lon}
                                 // units={units}
                             />
+                            <Footer/>
                         </React.Fragment>
                     )
                 } else {

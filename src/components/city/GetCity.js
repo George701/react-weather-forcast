@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-// import GetCityData from './GetCityData';
 import {connect} from "react-redux";
 import {getCity} from "../../actions/weatherActions";
 import PropTypes from "prop-types";
-// import 'moment-timezone';
+
 
 
 import Loader from '../layout/Loader';
 import Navigation from '../layout/Navigation';
+import Footer from '../layout/Footer';
 import WeatherUnit from "../layout/WeatherUnit";
 
 let units = '';
@@ -69,6 +69,7 @@ class GetCity extends Component {
                             />
                         )}
                     </div>
+                    <Footer/>
                 </div>
             );
         }else{

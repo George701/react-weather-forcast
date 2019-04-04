@@ -8,6 +8,7 @@ import GetGeo from './components/geo/GetGeo';
 import Index from './components/Index';
 import GetCity from './components/city/GetCity'
 
+
 class App extends Component {
   render() {
     return (
@@ -19,6 +20,7 @@ class App extends Component {
                         <Route exact path="/geo" component={GetGeo}/>
                         <Route exact path="/city" component={GetCity}/>
                     </Switch>
+
                 </div>
             </Router>
         </Provider>

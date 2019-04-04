@@ -2,10 +2,9 @@
   "name": "react-weather-forecast",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://George701.github.io/react-weather-forecast/",
+  "homepage": "https://george701.github.io/react-weather-forcast",
   "dependencies": {
     "axios": "^0.18.0",
-    "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.23",
     "prop-types": "^15.7.2",
@@ -35,5 +34,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
