@@ -1,17 +1,36 @@
-import {GET_BY_GEO} from './types';
+import {GET_BY_GEO, GET_BY_CITY} from './types';
 import axios from 'axios';
 
-export const getGeo = (latitude, longtitude) => async dispatch => {
+export const getGeo = (latitude, longtitude, units) => async dispatch => {
     const lat = latitude;
     const lon = longtitude;
+    const details = units;
+    // const details = "imperial";
 
     const APPID = "8fe3c472a676c5b382b004b1bfcaec99";
 
 
-    const res = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&APPID=${APPID}`);
-    // console.log(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&APPID=${APPID}`);
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${details}&APPID=${APPID}`);
     dispatch({
         type: GET_BY_GEO,
+        payload: res.data
+    })
+};
+
+export const getCity = (location, units) => async dispatch => {
+
+    // const city = "London,uk";
+    const city = location;
+    const details = units;
+
+    // console.log();
+
+    const APPID = "8fe3c472a676c5b382b004b1bfcaec99";
+
+
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${details}&APPID=${APPID}`);
+    dispatch({
+        type: GET_BY_CITY,
         payload: res.data
     })
 };

@@ -1,5 +1,6 @@
 .body-container{
   font-family: Roboto, serif;
+  z-index: 1;
 }
 
 /*
@@ -49,7 +50,8 @@
 */
 
 .loader{
-  width: 1000px;
+  height: 100%;
+  width: 100%;
   margin:auto;
   display:block;
 }
@@ -57,5 +59,208 @@
 /*
 -----------------------------------------
                  Loader
+-----------------------------------------
+*/
+
+/*
+-----------------------------------------
+                 Index
+-----------------------------------------
+*/
+
+.index-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  min-width: 300px;
+  border: 1px solid #666666;
+  background-color: #555555;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.index-header{
+  text-align: center;
+  color: #ff9c00;
+}
+
+.index-list{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.index-item{
+  flex: 1;
+  border: 1px solid #444444;
+  background-color: #333333;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #ffe98c;
+  font-size: 1.2rem;
+}
+
+.index-item:hover{
+  color: orange;
+  background-color: #111222;
+  transition: all 0.5s ease-out;
+}
+
+.index-item:nth-child(1){
+  margin-right: 5px;
+}
+
+.index-item:nth-child(2){
+  margin-left: 5px;
+}
+
+/*
+-----------------------------------------
+                 Index
+-----------------------------------------
+*/
+
+/*
+-----------------------------------------
+              Weather Units
+-----------------------------------------
+*/
+
+.wth-block{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  min-height: 30%;
+  overflow-x: auto;
+  background-color: #777777;
+  border: 2px solid #666666;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.wth-unit{
+  flex: 1;
+  border: 1px solid #FFFFFF;
+  background-color: #BBBBBB;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.wth-unit:hover{
+  background-color: #FFFFFF;
+  transition: all 0.5s ease-out;
+}
+
+.wth-unit:hover .sun, .wth-unit:hover .moon{
+  color: black;
+  transition: all 0.5s ease-out;
+}
+
+.wth-unit:hover .temperature{
+  color: #b80000;
+  transition: all 0.5s ease-out;
+}
+
+.wth-line{
+  white-space: nowrap;
+  position: relative;
+}
+
+.date-time{
+  font-weight: bold;
+  text-align: center;
+}
+
+.weather{
+  font-size: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.temperature{
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.3rem;
+}
+
+.sun{
+  color: orangered;
+}
+
+.moon{
+  color: darkblue;
+}
+
+.now{
+  background-color: #DDDDDD;
+}
+
+/*
+-----------------------------------------
+              Weather Units
+-----------------------------------------
+*/
+
+/*
+-----------------------------------------
+                Popover
+-----------------------------------------
+*/
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+/*
+-----------------------------------------
+                Popover
+-----------------------------------------
+*/
+
+/*
+-----------------------------------------
+                City
+-----------------------------------------
+*/
+
+.city-credentials{
+  text-align: center;
+}
+
+/*
+-----------------------------------------
+                City
 -----------------------------------------
 */

@@ -1,8 +1,9 @@
 import { GET_BY_GEO } from "../actions/types";
-// import { GET_BY_CITY } from "../actions/types";
+import { GET_BY_CITY } from "../actions/types";
 
 const initialState = {
-    data:[],
+    c_data:[],
+    l_data:[],
 };
 
 export default function(state = initialState, action){
@@ -10,7 +11,12 @@ export default function(state = initialState, action){
         case GET_BY_GEO:
             return{
                 ...state,
-                data: action.payload
+                l_data: action.payload
+            };
+        case GET_BY_CITY:
+            return{
+                ...state,
+                c_data: action.payload
             };
         default:
             return state;
