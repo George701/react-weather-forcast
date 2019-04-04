@@ -4,8 +4,6 @@ import {geolocated} from 'react-geolocated';
 import GetLocal from './GetLocal';
 
 import Loader from '../layout/Loader';
-import Navigation from '../layout/Navigation';
-import Footer from '../layout/Footer';
 
 class GetGeo extends Component {
     // state={
@@ -24,22 +22,11 @@ class GetGeo extends Component {
                 if (this.props.coords) {
                     const lat = parseFloat(this.props.coords.latitude);
                     const lon = parseFloat(this.props.coords.longitude);
-                    // const units = this.state.units;
-                    // console.log(units);
                     return (
-                        <React.Fragment>
-                            <Navigation/>
-                            {/*<select name="units" id="units" onChange={this.onChange}>*/}
-                                {/*<option value="metric">Celsius</option>*/}
-                                {/*<option value="imperial">Fahrenheit</option>*/}
-                            {/*</select>*/}
-                            <GetLocal
-                                lat={lat}
-                                lon={lon}
-                                // units={units}
-                            />
-                            <Footer/>
-                        </React.Fragment>
+                        <GetLocal
+                            lat={lat}
+                            lon={lon}
+                        />
                     )
                 } else {
                     return <Loader/>;

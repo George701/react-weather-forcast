@@ -12,7 +12,7 @@ class WeatherUnit extends Component {
         let now_date = new Date();
         now_date = String(formatDate(now_date));
         let weather = unit.weather[0].main;
-        console.log(unit);
+
         if (date === now_date || time === '12:00:00'){
             if(date === now_date){
                 return(

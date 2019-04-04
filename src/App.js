@@ -11,7 +11,6 @@ import GetCity from './components/city/GetCity'
 class App extends Component {
 
   render() {
-      console.log("Testiculs: "+ process.env.PUBLIC_URL);
     return (
         <Provider store={store}>
             {/*<BrowserRouter basename={process.env.PUBLIC_URL}>*/}

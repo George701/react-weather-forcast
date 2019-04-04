@@ -1,6 +1,7 @@
 .body-container{
   font-family: Roboto, serif;
   z-index: 1;
+  height: 100%
 }
 
 /*
@@ -239,6 +240,7 @@
   color: #fff;
   border-radius: 6px;
   padding: 5px;
+  left: 0;
 
   /* Position the tooltip */
   position: absolute;
@@ -344,6 +346,37 @@ footer .social{
 -----------------------------------------
 */
 
-@media  {
-  
+@media screen and (max-width: 768px) {
+  .nav-link{
+    font-size: 1rem;
+  }
+
+  .wth-block{
+    flex-direction: column;
+    width: 31%;
+    max-height: 40%;
+    overflow-y: auto;
+  }
+
+  .wth-unit{
+    min-height: 10rem;
+    margin: 5px 0;
+    max-width: 12rem;
+  }
+
+  .tooltip-text{
+    display: none;
+  }
+
+  .linked{
+    font-size: 1.5rem;
+  }
+
+  .github{
+    font-size: 1.5rem;
+  }
+
+  .social a:hover{
+    font-size: 2rem;
+  }
 }

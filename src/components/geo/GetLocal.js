@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {getCity, getGeo} from '../../actions/weatherActions';
+import {getGeo} from '../../actions/weatherActions';
 
 import Loader from '../layout/Loader';
 import WeatherUnit from "../layout/WeatherUnit";
+import Navigation from '../layout/Navigation';
+import Footer from '../layout/Footer';
 
 let units = '';
-let lat = "";
-let lon = "";
+let lat = '';
+let lon = '';
 
 class GetLocal extends Component {
     state={
@@ -19,16 +21,16 @@ class GetLocal extends Component {
 
     componentDidMount(){
         setInterval(() => {
-           if(units !== this.state.units){
-               // try let
-               lat = this.props.lat;
-               lon = this.props.lon;
-               units = this.state.units;
+            if(units !== this.state.units){
+                // try let
+                lat = this.props.lat;
+                lon = this.props.lon;
+                units = this.state.units;
 
-               console.log("Updating...");
+                console.log("Updating...");
 
-               this.props.getGeo(lat,lon, units);
-           }
+                this.props.getGeo(lat,lon, units);
+            }
         }, 1000);
     }
 
@@ -36,10 +38,12 @@ class GetLocal extends Component {
         const data = this.props.l_data;
         console.log(data);
         if(data){
-           const list = data.list;
+            const list = data.list;
+            const test = this.state.units;
             if(list){
                 return(
-                    <div>
+                    <React.Fragment>
+                        <Navigation/>
                         <div className="city-credentials">
                             <h1>City: <strong>{data.city.name}</strong>, Country: {data.city.country}</h1>
                             <div>
@@ -56,10 +60,10 @@ class GetLocal extends Component {
                                     unit={w_unit}
                                     units={units}
                                 />
-                             )}
+                            )}
                         </div>
-
-                    </div>)
+                        <Footer/>
+                    </React.Fragment>)
             }else{
                 return <Loader/>
             }
@@ -74,6 +78,25 @@ GetLocal.propTypes = {
     // data: PropTypes.array.isRequired,
     getGeo: PropTypes.func.isRequired,
 };
+
+// function getOptions(state){
+//     if(state==="metric"){
+//         return(
+//            <React.Fragment>
+//                <option value="metric">Celsius</option>
+//                <option value="imperial">Fahrenheit</option>
+//            </React.Fragment>
+//         )
+//     }else{
+//         return(
+//             <React.Fragment>
+//                 <option value="imperial">Fahrenheit</option>
+//                 <option value="metric">Celsius</option>
+//             </React.Fragment>
+//         )
+//     }
+//
+// }
 
 // const mapStateToProps = (state) => ({
 //     l_data: state.weather.l_data,

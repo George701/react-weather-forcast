@@ -3,8 +3,8 @@ import loader from './loader.gif';
 
 export default () => {
     return(
-        <div>
+        <React.Fragment>
             <img src={loader} alt="Loading..." className="loader"/>
-        </div>
+        </React.Fragment>
     )
 }
