@@ -24,16 +24,21 @@ class GetCity extends Component {
     onChangeUnits = e => this.setState({units: e.target.value});
 
     componentDidMount(){
-        setInterval(() => {
-            if(units !== this.state.units || city !== this.state.location){
-                city = this.state.location;
-                units = this.state.units;
+        city = this.state.location;
+        units = this.state.units;
 
-                console.log("Updating...");
+        console.log("Updating...");
 
-                this.props.getCity(city, units);
-            }
-        }, 1000);
+        this.props.getCity(city, units);
+    }
+
+    componentDidUpdate(prevState){
+        if(prevState.units !== this.state.units || prevState.city !== this.state.location){
+            units = this.state.units;
+            city = this.state.location;
+            console.log("Updating...");
+            this.props.getCity(city, units);
+        }
     }
 
     render() {
@@ -78,17 +83,9 @@ class GetCity extends Component {
     }
 }
 
-// export default GetCity;
 GetCity.propTypes = {
-    // data: PropTypes.array.isRequired,
+    // c_data: PropTypes.array.isRequired,
     getCity: PropTypes.func.isRequired,
 };
 
-// const mapStateToProps = (state) => ({
-//     c_data: state.weather.c_data,
-// });
-
-
-
-// export default connect(mapStateToProps, {getCity})(GetCity);
 export default connect((state) => {return {c_data: state.weather.c_data}},{getCity})(GetCity);

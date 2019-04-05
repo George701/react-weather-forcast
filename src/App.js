@@ -13,7 +13,6 @@ class App extends Component {
   render() {
     return (
         <Provider store={store}>
-            {/*<BrowserRouter basename={process.env.PUBLIC_URL}>*/}
             <HashRouter>
                 <div className="body-container">
                     <Switch>

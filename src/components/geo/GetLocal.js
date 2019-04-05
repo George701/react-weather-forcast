@@ -20,18 +20,19 @@ class GetLocal extends Component {
     onChange = e => this.setState({units: e.target.value});
 
     componentDidMount(){
-        setInterval(() => {
-            if(units !== this.state.units){
-                // try let
-                lat = this.props.lat;
-                lon = this.props.lon;
-                units = this.state.units;
+        lat = this.props.lat;
+        lon = this.props.lon;
+        units = this.state.units;
 
-                console.log("Updating...");
+        this.props.getGeo(lat,lon, units);
+    }
 
-                this.props.getGeo(lat,lon, units);
-            }
-        }, 1000);
+    componentDidUpdate(prevState){
+        if(prevState.units !== this.state.units){
+            units = this.state.units;
+            console.log("Updating...");
+            this.props.getGeo(lat,lon, units);
+        }
     }
 
     render() {
@@ -39,7 +40,6 @@ class GetLocal extends Component {
         console.log(data);
         if(data){
             const list = data.list;
-            const test = this.state.units;
             if(list){
                 return(
                     <React.Fragment>
@@ -75,32 +75,8 @@ class GetLocal extends Component {
 }
 
 GetLocal.propTypes = {
-    // data: PropTypes.array.isRequired,
+    // l_data: PropTypes.array.isRequired,
     getGeo: PropTypes.func.isRequired,
 };
 
-// function getOptions(state){
-//     if(state==="metric"){
-//         return(
-//            <React.Fragment>
-//                <option value="metric">Celsius</option>
-//                <option value="imperial">Fahrenheit</option>
-//            </React.Fragment>
-//         )
-//     }else{
-//         return(
-//             <React.Fragment>
-//                 <option value="imperial">Fahrenheit</option>
-//                 <option value="metric">Celsius</option>
-//             </React.Fragment>
-//         )
-//     }
-//
-// }
-
-// const mapStateToProps = (state) => ({
-//     l_data: state.weather.l_data,
-// });
-
-// export default connect(mapStateToProps, {getGeo})(GetLocal);
 export default connect((state) => {return {l_data: state.weather.l_data,}},{getGeo})(GetLocal);
