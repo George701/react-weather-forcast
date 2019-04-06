@@ -18,8 +18,17 @@ class CurrentUnit extends Component {
                     <div className="current-unit">
                         <div className="current-weather">
                             <div className="current-weather-handler">
-                                <span className="c-weather-unit"><span>{temperature}</span>{getDegreesUnit(units)}</span>
-                                <span className="c-weather-unit">{dnIcon(time, weather)}</span>
+                                <span className="c-weather-unit">
+                                    <span className="c-weather-unit-handler">
+                                        <span>{temperature}</span>
+                                        <span>{units}</span>
+                                    </span>
+                                </span>
+                                <span className="c-weather-unit">
+                                    <span className="c-weather-unit-handler">
+                                        {dnIcon(time, weather)}
+                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div className="today-weather">
@@ -30,15 +39,17 @@ class CurrentUnit extends Component {
                                 now_date = String(formatDate(now_date));
                                 time = String(dt.substring(dt.indexOf(" ") + 1, dt.length));
                                 if (date === now_date) {
-                                    return(
-                                        <div className="weather-item" key={weather_item.dt}>
-                                            <div className="weather-item-handler">
-                                                <span>{getDayTime(time)} </span>
-                                                <span>{parseInt(weather_item.main.temp)}{getDegreesUnit(units)}</span>
+                                    if(time === "03:00:00" || time === "09:00:00" || time === "15:00:00" || time === "21:00:00"){
+                                        return(
+                                            <div className="weather-item" key={weather_item.dt}>
+                                                <div className="weather-item-handler">
+                                                    <span>{getDayTime(time)} </span>
+                                                    <span>{parseInt(weather_item.main.temp)}{units}</span>
+                                                </div>
+                                                <div className="weather-item-handler"></div>
                                             </div>
-                                            <div className="weather-item-handler"></div>
-                                        </div>
-                                    )
+                                        )
+                                    }
                                 }
                             })}
                         </div>
@@ -59,18 +70,6 @@ function formatDate(date) {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
-}
-
-function getDegreesUnit(unit){
-    let d_unit = '';
-
-    if(unit === 'metric'){
-        d_unit = "°C";
-    }else{
-        d_unit = "°F";
-    }
-
-    return d_unit;
 }
 
 function dnIcon(time, weather){

@@ -27,7 +27,7 @@ class FutureUnits extends Component {
                                     {dnIcon(time, weather)}
                                 </div>
                                 <div className="future-item-temperature">
-                                    {parseInt(weather_item.main.temp)}{getDegreesUnit(units)}
+                                    {parseInt(weather_item.main.temp)}{units}
                                 </div>
                             </div>
                         )
@@ -48,18 +48,6 @@ function formatDate(date) {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
-}
-
-function getDegreesUnit(unit){
-    let d_unit = '';
-
-    if(unit === 'metric'){
-        d_unit = "°C";
-    }else{
-        d_unit = "°F";
-    }
-
-    return d_unit;
 }
 
 function dnIcon(time, weather){

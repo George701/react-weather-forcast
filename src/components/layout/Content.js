@@ -8,7 +8,8 @@ class Content extends Component {
     render(){
         const units = this.props.units;
         const data = this.props.data;
-        // console.log(data);
+        // console.log(units);
+        const degrees = getDegreesUnit(units);
         return(
             <div className="weather-unit">
                 <h1 className="current-data">
@@ -19,11 +20,11 @@ class Content extends Component {
                 <h2 className="current-data">{capitalizeFirstLetter(data[0].weather[0].description)}</h2>
                 <div className="weather-container">
                     <CurrentUnit
-                        units={units}
+                        units={degrees}
                         data={data}
                     />
                     <FutureUnits
-                        units={units}
+                        units={degrees}
                         data={data}
                     />
                 </div>
@@ -34,6 +35,18 @@ class Content extends Component {
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function getDegreesUnit(unit){
+    let d_unit = '';
+
+    if(unit === 'metric'){
+        d_unit = "°C";
+    }else{
+        d_unit = "°F";
+    }
+
+    return d_unit;
 }
 
 export default Content;
