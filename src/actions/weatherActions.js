@@ -7,7 +7,8 @@ export const getGeo = (latitude, longtitude, units) => async dispatch => {
     const details = units;
     // const details = "imperial";
 
-    const APPID = "8fe3c472a676c5b382b004b1bfcaec99";
+    const APPID = "8fe3c472a676c5b382b004b1bfcaec99"; // main
+    // const APPID = "7fb36ae655695a79730ae5642c831cae";
 
 
     const res = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${details}&APPID=${APPID}`);
@@ -26,7 +27,7 @@ export const getCity = (location, units) => async dispatch => {
     // console.log();
 
     const APPID = "8fe3c472a676c5b382b004b1bfcaec99";
-
+    // const APPID = "7fb36ae655695a79730ae5642c831cae";
 
     const res = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${details}&APPID=${APPID}`);
     dispatch({

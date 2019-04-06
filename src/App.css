@@ -1,8 +1,10 @@
-.body-container{
+html, body{
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(160deg, #FC766B, #FF8D68);
   font-family: Roboto, serif;
-  z-index: 1;
-  height: 100%
 }
+
 
 /*
 -----------------------------------------
@@ -69,53 +71,87 @@
 -----------------------------------------
 */
 
-.index-container{
+.index-container, .main-container{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19);
   min-width: 300px;
-  border: 1px solid #666666;
-  background-color: #555555;
-  border-radius: 5px;
-  padding: 5px;
+  background-color: #ffffff;
+  height: 60%;
+  width: 75%;
 }
 
-.index-header{
+.index-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   text-align: center;
-  color: #ff9c00;
+  color: #4E6672;
+  outline: none;
 }
 
-.index-list{
-  width: 100%;
+.index-row:nth-child(1){
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 }
 
-.index-item{
-  flex: 1;
-  border: 1px solid #444444;
-  background-color: #333333;
-  border-radius: 5px;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  color: #ffe98c;
+.index-row:nth-child(2){
+  margin-bottom: 20px;
+}
+
+.index-row:nth-child(3){
   font-size: 1.2rem;
 }
 
-.index-item:hover{
-  color: orange;
-  background-color: #111222;
+#city{
+  flex:3;
+  border: none;
+  border-bottom: 2px solid #4E6672;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4E6672;
+  padding-left:7%;
+}
+
+#city::placeholder{
+  color: #A9A9A9;
+  /*font-family: Arial, serif;*/
+}
+
+#city-search{
+  flex:1;
+  color: #4E6672;
+  background-color: unset;
+  box-sizing: unset;
+  border: none;
+  font-size: 2rem;
+  border-bottom: 2px solid #4E6672;
+  cursor: pointer;
+}
+
+#city-search:focus, #city:focus{
+  outline: none;
+}
+
+#city-search:hover{
   transition: all 0.5s ease-out;
+  color: #749ca8;
 }
 
-.index-item:nth-child(1){
-  margin-right: 5px;
+#city-search:focus{
+  transition: all 0.5s ease-out;
+  color: #FC766B;
 }
 
-.index-item:nth-child(2){
-  margin-left: 5px;
+.geo-position{
+  color: #4E6672;
+  text-decoration: unset;
+  border-bottom: 1px dashed #4E6672;
 }
 
 /*
@@ -130,91 +166,138 @@
 -----------------------------------------
 */
 
-.wth-block{
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.main-container{
+  padding: 40px;
+  color: #526473;
+}
+
+/*Header*/
+
+.main-header{
+  display:flex;
+  flex-direction: row;
+  min-width: 60%;
+  padding: 0 20px;
+}
+
+.main-header h1{
+  margin: 0;
+  flex: 9;
+}
+
+.main-header h1 span{
+  margin-left: 20px;
+}
+
+
+.back-route{
+  text-decoration: none;
+  color:  unset;
+}
+
+.wrapper-ios{
+  float: right;
+  margin: auto 0;
+}
+
+.weather-unit{
+  height: 90%;
+  padding-top: 20px;
+}
+
+.current-data{
+  font-weight: normal;
+}
+
+.weather-container{
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  color: #FF8D68;
+}
+
+.current-unit{
+  flex: 2;
   display: flex;
   flex-direction: row;
-  width: 80%;
-  min-height: 30%;
-  overflow-x: auto;
-  background-color: #777777;
-  border: 2px solid #666666;
-  border-radius: 5px;
-  padding: 10px;
 }
 
-.wth-unit{
+.current-weather, .today-weather{
   flex: 1;
-  border: 1px solid #FFFFFF;
-  background-color: #BBBBBB;
-  border-radius: 5px;
-  margin: 0 5px;
-  padding: 10px;
-  position: relative;
-  min-width: 6rem;
-  cursor: pointer;
 }
 
-.wth-unit:hover{
-  background-color: #FFFFFF;
-  transition: all 0.5s ease-out;
+.current-weather{
+  font-size: 9rem;
+  position:relative;
 }
 
-.wth-unit:hover .sun, .wth-unit:hover .moon{
-  color: black;
-  transition: all 0.5s ease-out;
+.current-weather-handler{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
 }
 
-.wth-unit:hover .temperature{
-  color: #b80000;
-  transition: all 0.5s ease-out;
+.c-weather-unit{
+  flex: 1;
 }
-
-.wth-line{
-  white-space: nowrap;
-  position: relative;
-}
-
-.date-time{
-  font-weight: bold;
+.c-weather-unit:nth-child(2){
   text-align: center;
 }
 
-.weather{
-  font-size: 4rem;
+.today-weather{
+  display: flex;
+  flex-direction: column;
+  position:relative;
+}
+
+.weather-item{
+  flex:1;
+  width: 100%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translateY(-50%);
+  display:flex;
+  flex-direction: row;
 }
 
-.temperature{
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.3rem;
+.weather-item-handler{
+  flex:1;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
 }
 
-.sun{
-  color: #ffb74d;
+.weather-item-handler span{
+  flex:1;
 }
 
-.moon{
-  color: #90caf9;
+.future-units{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  color: #566069;
 }
 
-.now{
-  background-color: #DDDDDD;
+.future-item{
+  flex:1;
+  text-align: center;
+  margin-right: 8rem;
 }
 
-.future-date i{
-  color: #fb8c00!important;
+.future-item-day{
+  margin-bottom: 1rem;
 }
 
+.future-item-weather{
+  font-size: 3rem;
+}
+
+.future-item-temperature{
+  margin-top: 1rem;
+}
 
 /*
 -----------------------------------------
@@ -222,40 +305,67 @@
 -----------------------------------------
 */
 
-/*
------------------------------------------
-                Popover
------------------------------------------
-*/
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltip-text {
-  visibility: hidden;
-  background-color: black;
-  color: #fff;
-  border-radius: 6px;
-  padding: 5px;
-  left: 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltip-text {
-  visibility: visible;
-}
 
 /*
 -----------------------------------------
-                Popover
+              Tumbler
 -----------------------------------------
 */
+.onoffswitch {
+  position: relative; width: 70px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 2px solid #E3E3E3; border-radius: 50px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 25px; padding: 0; line-height: 25px;
+  font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "°C";
+  padding-left: 15px;
+  background-color: #FFFFFF; color: #666666;
+}
+.onoffswitch-inner:after {
+  content: "°F";
+  padding-right: 15px;
+  background-color: #FFFFFF; color: #666666;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block;
+  width: 27px;
+  height: 27px;
+  margin: -1px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 41px;
+  border: 2px solid #E3E3E3; border-radius: 50px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+
+/*
+-----------------------------------------
+              Tumbler
+-----------------------------------------
+*/
+
 
 /*
 -----------------------------------------
@@ -273,110 +383,6 @@
 -----------------------------------------
 */
 
-/*
------------------------------------------
-                Footer
------------------------------------------
-*/
-
-footer {
-  width: 100%;
-  display: inline-block;
-  height: 70px;
-  background-color: #999;
-  position: fixed;
-  bottom: 0;
-}
-
-.copyright{
-  width: 50%;
-  float: left;
-}
-
-.copyright span{
-  padding-left: 10%;
-  color: white;
-  font-size: 0.7em;
-  line-height: 70px;
-  text-transform: capitalize;
-  letter-spacing: 1px;
-}
-
-footer .social{
-  width: 50%;
-  float: right;
-}
-
-.social a{
-  float: right;
-  line-height: 70px!important;
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  transition: all, 0.5s
-}
-
-.linked{
-  background-color: #1E83AE;
-  font-size: 2rem;
-  width: 20%;
-}
-
-.github{
-  background-color: #24292e;
-  font-size: 2rem;
-  width: 20%;
-}
-
-.social a:hover{
-  background-color: #222;
-  transition: all, 0.5s;
-  font-size: 3rem;
-}
-
-.github:hover{
-  background-color: #000000;
-  transition: all, 0.5s;
-}
-
-/*
------------------------------------------
-                Footer
------------------------------------------
-*/
 
 @media screen and (max-width: 768px) {
-  .nav-link{
-    font-size: 1rem;
-  }
-
-  .wth-block{
-    flex-direction: column;
-    width: 31%;
-    max-height: 40%;
-    overflow-y: auto;
-  }
-
-  .wth-unit{
-    min-height: 10rem;
-    margin: 5px 0;
-    max-width: 12rem;
-  }
-
-  .tooltip-text{
-    display: none;
-  }
-
-  .linked{
-    font-size: 1.5rem;
-  }
-
-  .github{
-    font-size: 1.5rem;
-  }
-
-  .social a:hover{
-    font-size: 2rem;
-  }
 }

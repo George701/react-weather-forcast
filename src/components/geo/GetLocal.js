@@ -2,75 +2,86 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {getGeo} from '../../actions/weatherActions';
+import { Link } from 'react-router-dom';
 
+import Content from '../layout/Content';
 import Loader from '../layout/Loader';
-import WeatherUnit from "../layout/WeatherUnit";
-import Navigation from '../layout/Navigation';
-import Footer from '../layout/Footer';
 
-let units = '';
-let lat = '';
-let lon = '';
 
 class GetLocal extends Component {
-    state={
-        units: "metric"
+    state = {
+        units_state: true,
     };
 
-    onChange = e => this.setState({units: e.target.value});
+    onChangeUnits = () => {
+        // console.log("clicked: "+!this.state.units_state);
+        this.setState({units_state: !this.state.units_state})
+    };
 
     componentDidMount(){
-        lat = this.props.lat;
-        lon = this.props.lon;
-        units = this.state.units;
+        const lat = this.props.lat;
+        const lon = this.props.lon;
+        let units = getUnits(this.state.units_state);
 
         this.props.getGeo(lat,lon, units);
     }
 
-    componentDidUpdate(prevState){
-        if(prevState.units !== this.state.units){
-            units = this.state.units;
-            console.log("Updating...");
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.units_state !== this.state.units_state){
+            let units = getUnits(this.state.units_state);
+
+            const lat = this.props.lat;
+            const lon = this.props.lon;
+
             this.props.getGeo(lat,lon, units);
         }
     }
 
     render() {
-        const data = this.props.l_data;
-        console.log(data);
-        if(data){
-            const list = data.list;
-            if(list){
-                return(
-                    <React.Fragment>
-                        <Navigation/>
-                        <div className="city-credentials">
-                            <h1>City: <strong>{data.city.name}</strong>, Country: {data.city.country}</h1>
-                            <div>
-                                <select name="units" id="units" onChange={this.onChange}>
-                                    <option value="metric">Celsius</option>
-                                    <option value="imperial">Fahrenheit</option>
-                                </select>
-                            </div>
+        const list = this.props.l_data.list;
+
+        if(list){
+            // this.setState({location: city});
+            return(
+                <div  className="main-container">
+                    <div className="main-header">
+                        <h1>
+                            <Link to="/" className="back-route">
+                                <i className="fas fa-arrow-left"/>
+                                {" "}
+                            </Link>
+                            <span>
+                                {this.props.l_data.city.name}
+                            </span>
+                        </h1>
+
+                        <div className="onoffswitch wrapper-ios">
+                            <input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox"
+                                   id="myonoffswitch" defaultChecked={this.state.units_state} onChange={this.onChangeUnits} />
+                            <label className="onoffswitch-label" htmlFor="myonoffswitch">
+                                <span className="onoffswitch-inner"></span>
+                                <span className="onoffswitch-switch"></span>
+                            </label>
                         </div>
-                        <div className="wth-block">
-                            {list.map(w_unit =>
-                                <WeatherUnit
-                                    key={w_unit.dt}
-                                    unit={w_unit}
-                                    units={units}
-                                />
-                            )}
-                        </div>
-                        <Footer/>
-                    </React.Fragment>)
-            }else{
-                return <Loader/>
-            }
+                    </div>
+
+                <Content
+                    units = {getUnits(this.state.units_state)}
+                    data = {list}
+                />
+            </div>
+            )
         }else{
             return <Loader/>
         }
+    }
+}
 
+function getUnits(bool){
+    if(bool){
+        return "metric"
+    }else{
+        return "imperial";
     }
 }
 

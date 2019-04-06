@@ -18,7 +18,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Index}/>
                         <Route exact path="/geo" component={GetGeo}/>
-                        <Route exact path="/city" component={GetCity}/>
+                        <Route exact path="/city/:city" component={GetCity}/>
                     </Switch>
                 </div>
             </HashRouter>
