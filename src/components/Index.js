@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import cities from '../known_city/city.list';
+// import cities from '../known_city/city.list';
+import cities from '../known_city/citylist';
 
 class Index extends Component {
     state = {
