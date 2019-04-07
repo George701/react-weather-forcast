@@ -460,12 +460,12 @@ html, body{
   }
 
   .current-weather {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 
   .c-weather-unit:nth-child(2) {
-    padding-left: 15px;
-    font-size: 8rem;
+    padding-left: 20px;
+    font-size: 7.5rem;
   }
 
   .weather-item-handler{
