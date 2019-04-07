@@ -18,11 +18,9 @@ export const getGeo = (latitude, longtitude, units) => async dispatch => {
 };
 
 export const getCity = (location, units) => async dispatch => {
-    
+
     const city = location;
     const details = units;
-
-    // console.log();
 
     const APPID = "8fe3c472a676c5b382b004b1bfcaec99";
     // const APPID = "7fb36ae655695a79730ae5642c831cae";
