@@ -12,12 +12,12 @@ class Content extends Component {
         const degrees = getDegreesUnit(units);
         return(
             <div className="weather-unit">
-                <h1 className="current-data">
-                    <Moment  format={'dddd, MMMM Do YYYY'}>
+                <h1 className="current-data time-header">
+                    <Moment  format={'dddd, MMMM Do YYYY'} className="">
                         {data[0].dt_txt}
                     </Moment>
                 </h1>
-                <h2 className="current-data">{capitalizeFirstLetter(data[0].weather[0].description)}</h2>
+                <h2 className="current-data weather-description">{capitalizeFirstLetter(data[0].weather[0].description)}</h2>
                 <div className="weather-container">
                     <CurrentUnit
                         units={degrees}

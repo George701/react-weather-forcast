@@ -22,6 +22,22 @@ class Index extends Component {
 
     render() {
 
+        this.handleKeyEnter = (e) => {
+            if(e.key === 'Enter'){
+                let city = document.getElementById('city').value;
+                if(city !== ""){
+                    let redirect_city = checkAndGetCountryCode(city);
+                    if (redirect_city !== false){
+                        // console.log(redirect_city);
+                        this.setState({city_redirect: redirect_city});
+                        this.setRedirect();
+                    }
+                }else{
+                    alert("You didn't select any city! Please type the name of the city");
+                }
+            }
+        };
+
         this.onClick = () => {
             let city = document.getElementById('city').value;
             if(city !== ""){
@@ -41,7 +57,7 @@ class Index extends Component {
             <div className="index-container">
                 <div className="index-content">
                     <div className="index-row">
-                        <input type="text" name="city_name" id="city" placeholder="City"/>
+                        <input type="text" name="city_name" id="city" placeholder="City" onKeyPress={this.handleKeyEnter}/>
                         <button id="city-search" onClick={this.onClick}>
                             {this.renderRedirect()}
                             <i className="fas fa-search"/>

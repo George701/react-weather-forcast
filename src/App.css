@@ -167,7 +167,7 @@ html, body{
 */
 
 .main-container{
-  padding: 40px;
+  padding: 40px 40px 0 40px;
   color: #526473;
 }
 
@@ -187,6 +187,7 @@ html, body{
 
 .main-header h1 span{
   margin-left: 20px;
+  font-size: 2.5rem;
 }
 
 
@@ -202,11 +203,21 @@ html, body{
 
 .weather-unit{
   height: 90%;
-  padding-top: 20px;
 }
 
 .current-data{
   font-weight: normal;
+}
+
+.time-header{
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.weather-description{
+  font-size:2rem;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 
 .weather-container{
@@ -217,9 +228,10 @@ html, body{
 }
 
 .current-unit{
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: row;
+  padding: 10px 0 30px 0;
 }
 
 .current-weather, .today-weather{
@@ -227,7 +239,7 @@ html, body{
 }
 
 .current-weather{
-  font-size: 9rem;
+  font-size: 7rem;
   position:relative;
 }
 
@@ -253,7 +265,7 @@ html, body{
 }
 
 .c-weather-unit:nth-child(2){
-  /*text-align: center;*/
+  padding-left: 20px;
   font-size: 10rem;
 }
 
@@ -267,9 +279,7 @@ html, body{
 .weather-item{
   flex:1;
   width: 100%;
-  /*position: absolute;*/
-  /*top: 50%;*/
-  /*transform: translateY(-50%);*/
+  position: relative;
   display:flex;
   flex-direction: row;
 }
@@ -279,6 +289,10 @@ html, body{
   display: flex;
   flex-direction: row;
   font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
 }
 
 .weather-item-handler span{
@@ -290,12 +304,13 @@ html, body{
   display: flex;
   flex-direction: row;
   color: #566069;
+  padding: 10px 0 0 0;
 }
 
 .future-item{
   flex:1;
   text-align: center;
-  margin-right: 8rem;
+  /*margin-right: 8rem;*/
 }
 
 .future-item-day{
@@ -324,7 +339,7 @@ html, body{
 */
 .onoffswitch {
   position: relative;
-  width: 80px;
+  width: 112px;
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select: none;
@@ -384,7 +399,7 @@ html, body{
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 41px;
+  right: 73px;
   border: 2px solid #5D686C;
   border-radius: 50px;
   transition: all 0.3s ease-in 0s;
