@@ -5,12 +5,11 @@ class FutureUnits extends Component {
     render(){
         const units = this.props.units;
         const data = this.props.data;
-        let dt, date, now_date, time, weather;
+        let dt, now_date, time, weather;
         return(
             <div className="future-units">
-                {data.map(weather_item =>{
+                {data.map(weather_item => {
                     dt = weather_item.dt_txt;
-                    date = String(dt.substring(0, dt.indexOf(" ")));
                     now_date = new Date();
                     now_date = String(formatDate(now_date));
                     weather = weather_item.weather[0].main;

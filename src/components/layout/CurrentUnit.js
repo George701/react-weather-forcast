@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
 
 class CurrentUnit extends Component {
     render(){
@@ -9,53 +8,49 @@ class CurrentUnit extends Component {
             let dt = data[0].dt_txt;
             let date = String(dt.substring(0, dt.indexOf(" ")));
             let time = String(dt.substring(dt.indexOf(" ") + 1, dt.length));
-            // let now_date = new Date();
-            // now_date = String(formatDate(now_date));
             let weather = data[0].weather[0].main;
             let temperature = parseInt(data[0].main.temp);
-            // if (date === now_date) {
-                return (
-                    <div className="current-unit">
-                        <div className="current-weather">
-                            <div className="current-weather-handler">
-                                <span className="c-weather-unit">
-                                    <span className="c-weather-unit-handler">
-                                        <span>{temperature}</span>
-                                        <span>{units}</span>
-                                    </span>
+            return (
+                <div className="current-unit">
+                    <div className="current-weather">
+                        <div className="current-weather-handler">
+                            <span className="c-weather-unit">
+                                <span className="c-weather-unit-handler">
+                                    <span>{temperature}</span>
+                                    <span>{units}</span>
                                 </span>
-                                <span className="c-weather-unit">
-                                    <span className="c-weather-unit-handler">
-                                        {dnIcon(time, weather)}
-                                    </span>
+                            </span>
+                            <span className="c-weather-unit">
+                                <span className="c-weather-unit-handler">
+                                    {dnIcon(time, weather)}
                                 </span>
-                            </div>
-                        </div>
-                        <div className="today-weather">
-                            {data.map(weather_item =>{
-                                dt = weather_item.dt_txt;
-                                date = String(dt.substring(0, dt.indexOf(" ")));
-                                let now_date = new Date();
-                                now_date = String(formatDate(now_date));
-                                time = String(dt.substring(dt.indexOf(" ") + 1, dt.length));
-                                if (date === now_date) {
-                                    if(time === "03:00:00" || time === "09:00:00" || time === "15:00:00" || time === "21:00:00"){
-                                        return(
-                                            <div className="weather-item" key={weather_item.dt}>
-                                                <div className="weather-item-handler">
-                                                    <span>{getDayTime(time)} </span>
-                                                    <span>{parseInt(weather_item.main.temp)}{units}</span>
-                                                </div>
-                                                <div className="weather-item-handler"></div>
-                                            </div>
-                                        )
-                                    }
-                                }
-                            })}
+                            </span>
                         </div>
                     </div>
-                )
-            // }
+                    <div className="today-weather">
+                        {data.map(weather_item =>{
+                            dt = weather_item.dt_txt;
+                            date = String(dt.substring(0, dt.indexOf(" ")));
+                            let now_date = new Date();
+                            now_date = String(formatDate(now_date));
+                            time = String(dt.substring(dt.indexOf(" ") + 1, dt.length));
+                            if (date === now_date) {
+                                if(time === "03:00:00" || time === "09:00:00" || time === "15:00:00" || time === "21:00:00"){
+                                    return(
+                                        <div className="weather-item" key={weather_item.dt}>
+                                            <div className="weather-item-handler">
+                                                <span>{getDayTime(time)} </span>
+                                                <span>{parseInt(weather_item.main.temp)}{units}</span>
+                                            </div>
+                                            <div className="weather-item-handler"></div>
+                                        </div>
+                                    )
+                                }
+                            }
+                        })}
+                    </div>
+                </div>
+            )
         }
     }
 }

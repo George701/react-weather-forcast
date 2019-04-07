@@ -1,6 +1,4 @@
 import React from 'react';
-// import loader from './loader.gif';
-// import loader from './spinner.gif';
 import loader from './s-loader.gif';
 
 export default () => {

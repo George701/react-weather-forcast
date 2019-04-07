@@ -14,7 +14,6 @@ class GetLocal extends Component {
     };
 
     onChangeUnits = () => {
-        // console.log("clicked: "+!this.state.units_state);
         this.setState({units_state: !this.state.units_state})
     };
 
@@ -41,7 +40,6 @@ class GetLocal extends Component {
         const list = this.props.l_data.list;
 
         if(list){
-            // this.setState({location: city});
             return(
                 <div  className="main-container">
                     <div className="main-header">

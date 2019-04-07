@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 import Content from '../layout/Content';
 import Loader from '../layout/Loader';
 
-// let city = '';
 
 class GetCity extends Component {
     state = {
@@ -16,7 +15,6 @@ class GetCity extends Component {
     };
 
     onChangeUnits = () => {
-        // console.log("clicked: "+!this.state.units_state);
         this.setState({units_state: !this.state.units_state})
     };
 
@@ -31,7 +29,6 @@ class GetCity extends Component {
     componentDidUpdate(prevProps, prevState){
         if(prevState.units_state !== this.state.units_state){
             let units = getUnits(this.state.units_state);
-            // console.log(units);
 
             const { city } = this.props.match.params;
             this.props.getCity(city, units);
@@ -96,4 +93,3 @@ GetCity.propTypes = {
 };
 
 export default connect((state) => {return {c_data: state.weather.c_data}},{getCity})(GetCity);
-// export default GetCity;

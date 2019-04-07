@@ -79,7 +79,7 @@ html, body{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 0px 20px -4px black;
   min-width: 300px;
   background-color: #ffffff;
 
@@ -211,7 +211,7 @@ html, body{
 }
 
 .weather-unit{
-  height: 90%;
+  height: 100%;
 }
 
 .current-data{
@@ -220,7 +220,7 @@ html, body{
 
 .time-header{
   font-size: 3rem;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .weather-description{
@@ -386,15 +386,15 @@ html, body{
 }
 .onoffswitch-inner:before {
   content: "°C";
-  padding-left: 15px;
-  padding-top: 4px;
+  padding-left: 20px;
+  padding-top: 6px;
   background-color: #FFFFFF;
   color: #5D686C;
 }
 .onoffswitch-inner:after {
   content: "°F";
-  padding-right: 15px;
-  padding-top: 4px;
+  padding-right: 20px;
+  padding-top: 6px;
   background-color: #FFFFFF;
   color: #5D686C;
   text-align: right;
@@ -450,7 +450,26 @@ html, body{
 -----------------------------------------
 */
 
+@media screen and (max-width: 1600px) and (min-width: 1400px) {
+  .weather-unit {
+    height: 90%;
+  }
+
+  .today-weather{
+    padding: 10px 0;
+  }
+}
+
 @media screen and (max-width: 1400px) and (min-width: 1176px) {
+
+  .weather-unit {
+    height: 80%;
+  }
+
+  .today-weather{
+    padding: 0;
+  }
+
   .time-header{
     font-size: 2.5rem;
     margin-top: 25px;
@@ -483,6 +502,14 @@ html, body{
 }
 
 @media screen and (max-width: 1176px) and (min-width: 900px){
+
+  .weather-unit {
+    height: 80%;
+  }
+
+  .today-weather{
+    padding: 0;
+  }
 
   .main-header h1 span {
     margin-left: 15px;
@@ -528,6 +555,14 @@ html, body{
 }
 
 @media screen and (max-width: 900px) and (min-width: 768px){
+
+  .weather-unit {
+    height: 80%;
+  }
+
+  .today-weather{
+    padding: 0;
+  }
 
   .main-header h1 span {
     margin-left: 10px;

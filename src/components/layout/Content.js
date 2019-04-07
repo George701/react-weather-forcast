@@ -8,7 +8,6 @@ class Content extends Component {
     render(){
         const units = this.props.units;
         const data = this.props.data;
-        // console.log(units);
         const degrees = getDegreesUnit(units);
         return(
             <div className="weather-unit">

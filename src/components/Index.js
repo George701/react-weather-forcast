@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-// import cities from '../known_city/city.list';
 import cities from '../known_city/citylist';
 
 class Index extends Component {
@@ -45,7 +44,6 @@ class Index extends Component {
             if(city !== ""){
                 let redirect_city = checkAndGetCountryCode(city);
                 if (redirect_city !== false){
-                    // console.log(redirect_city);
                     this.setState({city_redirect: redirect_city});
                     this.setRedirect();
                 }
