@@ -196,6 +196,7 @@ html, body{
 .main-header h1 span{
   margin-left: 20px;
   font-size: 2.5rem;
+  font-weight: 600;
 }
 
 
@@ -214,12 +215,12 @@ html, body{
 }
 
 .current-data{
-  font-weight: normal;
+  font-weight: 100;
 }
 
 .time-header{
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .weather-description{
@@ -452,7 +453,7 @@ html, body{
 @media screen and (max-width: 1400px) and (min-width: 1176px) {
   .time-header{
     font-size: 2.5rem;
-    margin-top: 10px;
+    margin-top: 25px;
   }
   .weather-description {
     font-size: 1.7rem;
@@ -490,7 +491,7 @@ html, body{
 
   .time-header{
     font-size: 2.2rem;
-    margin-top: 8px;
+    margin-top: 15px;
   }
 
   .weather-description {
@@ -535,7 +536,7 @@ html, body{
 
   .time-header{
     font-size: 1.8rem;
-    margin-top: 8px;
+    margin-top: 15px;
   }
 
   .weather-description {

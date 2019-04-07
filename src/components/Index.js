@@ -87,7 +87,6 @@ function selectCity(city){
     for(let i = 0; i < cities.length; i++){
         if(cities[i].name === city){
             c_code = String(cities[i].name+","+cities[i].country);
-            console.log("Founded!" + c_code);
             return c_code;
         }
     }

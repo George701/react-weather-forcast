@@ -13,7 +13,7 @@ class Content extends Component {
         return(
             <div className="weather-unit">
                 <h1 className="current-data time-header">
-                    <Moment  format={'dddd, MMMM Do YYYY'} className="">
+                    <Moment  format={'dddd, MMMM Do YYYY'}>
                         {data[0].dt_txt}
                     </Moment>
                 </h1>
