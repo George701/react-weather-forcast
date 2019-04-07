@@ -53,10 +53,13 @@ html, body{
 */
 
 .loader{
-  height: 100%;
-  width: 100%;
-  margin:auto;
-  display:block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position:absolute;
+  z-index: 10;
+
 }
 
 /*
@@ -71,7 +74,7 @@ html, body{
 -----------------------------------------
 */
 
-.index-container, .main-container{
+.index-container,.main-container{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -79,8 +82,12 @@ html, body{
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 1px 0 rgba(0, 0, 0, 0.19);
   min-width: 300px;
   background-color: #ffffff;
-  height: 60%;
+
   width: 60%;
+}
+
+.index-container{
+  height: 64%;
 }
 
 .index-content{
@@ -169,6 +176,7 @@ html, body{
 .main-container{
   padding: 40px 40px 0 40px;
   color: #526473;
+  height: 60%;
 }
 
 /*Header*/
@@ -351,7 +359,7 @@ html, body{
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #5D686C;
+  border: 1px solid #5D686C;
   border-radius: 50px;
   height: 2.2rem;
   /*width: 5rem;*/
@@ -392,15 +400,15 @@ html, body{
 }
 .onoffswitch-switch {
   display: block;
-  width: 27px;
+  width: 32px;
   height: 27px;
   margin: 4px;
   background: #FFFFFF;
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 73px;
-  border: 2px solid #5D686C;
+  right: 71px;
+  border: 1px solid #5D686C;
   border-radius: 50px;
   transition: all 0.3s ease-in 0s;
 }
@@ -435,5 +443,283 @@ html, body{
 */
 
 
-@media screen and (max-width: 768px) {
+/*
+-----------------------------------------
+              Portability
+-----------------------------------------
+*/
+
+@media screen and (max-width: 1400px) and (min-width: 1176px) {
+  .time-header{
+    font-size: 2.5rem;
+    margin-top: 10px;
+  }
+  .weather-description {
+    font-size: 1.7rem;
+    margin-top: 10px;
+  }
+
+  .current-weather {
+    font-size: 6rem;
+  }
+
+  .c-weather-unit:nth-child(2) {
+    padding-left: 15px;
+    font-size: 8rem;
+  }
+
+  .weather-item-handler{
+    font-size:1.2rem;
+  }
+
+  .future-item-day{
+    margin-bottom: .8rem;
+  }
+
+  .future-item-temperature{
+    margin-top: .8rem;
+  }
 }
+
+@media screen and (max-width: 1176px) and (min-width: 900px){
+
+  .main-header h1 span {
+    margin-left: 15px;
+    font-size: 2.2rem;
+  }
+
+  .time-header{
+    font-size: 2.2rem;
+    margin-top: 8px;
+  }
+
+  .weather-description {
+    font-size: 1.3rem;
+    margin-top: 8px;
+  }
+
+  .current-weather {
+    font-size: 4.5rem;
+  }
+
+  .c-weather-unit:nth-child(2) {
+    padding-left: 10px;
+    font-size: 6rem;
+  }
+
+  .weather-item-handler{
+    font-size: 1rem;
+  }
+
+  .future-item-day{
+    margin-bottom: .6rem;
+    font-size: .8rem;
+  }
+
+  .future-item-weather {
+    font-size: 2.3rem;
+  }
+
+  .future-item-temperature{
+    font-size: .8rem;
+    margin-top: .6rem;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 768px){
+
+  .main-header h1 span {
+    margin-left: 10px;
+    font-size: 2rem;
+  }
+
+  .time-header{
+    font-size: 1.8rem;
+    margin-top: 8px;
+  }
+
+  .weather-description {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .current-weather {
+    font-size: 3rem;
+  }
+
+  .c-weather-unit:nth-child(2) {
+    padding-left: 10px;
+    font-size: 4.5rem;
+  }
+
+  .weather-item-handler{
+    font-size: .8rem;
+  }
+
+  .future-item-day{
+    margin-bottom: .6rem;
+    font-size: .8rem;
+  }
+
+  .future-item-weather {
+    font-size: 2.3rem;
+  }
+
+  .future-item-temperature{
+    font-size: .8rem;
+    margin-top: .6rem;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 650px){
+
+  .main-header h1 span {
+    margin-left: 10px;
+    font-size: 2rem;
+  }
+
+  .time-header{
+    font-size: 1.8rem;
+    margin-top: 8px;
+  }
+
+  .weather-description {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .current-weather {
+    font-size: 3rem;
+  }
+
+  .c-weather-unit:nth-child(2) {
+    padding-left: 10px;
+    font-size: 4.5rem;
+  }
+
+  .weather-item-handler{
+    font-size: .8rem;
+  }
+
+  .future-item-day{
+    margin-bottom: .6rem;
+    font-size: .8rem;
+  }
+
+  .future-item-weather {
+    font-size: 2.3rem;
+  }
+
+  .future-item-temperature{
+    font-size: .8rem;
+    margin-top: .6rem;
+  }
+
+  .onoffswitch{
+    width: 80px;
+  }
+
+  .onoffswitch-switch{
+    right: 38px;
+  }
+
+  .main-container{
+    padding: 20px;
+    height: unset;
+  }
+
+  .current-unit{
+    padding: 10px 0 15px 0;
+  }
+}
+
+@media screen and (max-width: 650px){
+
+  .main-header h1 span {
+    margin-left: 10px;
+    font-size: 1.8rem;
+  }
+
+  .time-header{
+    font-size: 1.6rem;
+    margin-top: 8px;
+  }
+
+  .weather-description {
+    font-size: .8rem;
+    margin-top: 8px;
+  }
+
+  .current-weather {
+    font-size: 2rem;
+  }
+
+  .c-weather-unit:nth-child(2) {
+    padding-left: 10px;
+    font-size: 3rem;
+  }
+
+  .weather-item-handler{
+    font-size: .7rem;
+  }
+
+  .future-item-day{
+    margin-bottom: .5rem;
+    font-size: .6rem;
+  }
+
+  .future-item-weather {
+    font-size: 1.5rem;
+  }
+
+  .future-item-temperature{
+    font-size: .6rem;
+    margin-top: .5rem;
+  }
+
+  .onoffswitch{
+    width: 60px;
+  }
+
+  .onoffswitch-switch{
+    right: 23px;
+  }
+
+  .main-container{
+    padding: 20px;
+    height: unset;
+  }
+
+  .current-unit{
+    padding: 10px 0 15px 0;
+  }
+
+  .onoffswitch-inner:after{
+    padding-right: 5px;
+    padding-top: 4px;
+    font-size: .7rem;
+  }
+
+  .onoffswitch-inner:before{
+    padding-left: 4px;
+    padding-top: 4px;
+    font-size: .7rem;
+  }
+
+  .onoffswitch-switch{
+    width: 28px;
+    height: 24px;
+  }
+
+  .onoffswitch-label{
+    height: 2rem;
+  }
+
+
+}
+
+/*
+-----------------------------------------
+              Portability
+-----------------------------------------
+*/

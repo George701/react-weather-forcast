@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import cities from '../known_city/city.list';
 
 class Index extends Component {
     state = {
@@ -52,7 +53,6 @@ class Index extends Component {
             }
         };
 
-        // console.log(this.state.city_redirect);
         return (
             <div className="index-container">
                 <div className="index-content">
@@ -77,54 +77,32 @@ class Index extends Component {
     }
 }
 
-const city_array = [
-    "London"
-];
-
-const city_countryCode = [
-    "uk"
-];
 
 function selectCity(city){
     city = String(city);
-    console.log(city);
-    switch(city){
-        case city_array[0]:
-            city = String(city_array[0]+","+city_countryCode[0]);
-            break;
-        default:
-            city = "Undefined";
+
+    let c_code = "Undefined";
+
+    for(let i = 0; i < cities.length; i++){
+        if(cities[i].name === city){
+            c_code = String(cities[i].name+","+cities[i].country);
+            console.log("Founded!" + c_code);
+            return c_code;
+        }
     }
-    return city;
+    return c_code;
 }
 
 function checkAndGetCountryCode(city){
     let city_and_code = selectCity(city);
-    // console.log(city_and_code);
     if(city_and_code === "Undefined"){
-        let city_list = "";
-        for(let i = 0; i < city_array.length; i++){
-            if(city_array[i] === city_array[city_array.length-1]){
-                city_list += city_array[i]+"."
-            }else{
-                city_list += city_array[i]+", "
-            }
-        }
-        alert("In free trial you may use only this list of cities: "+city_list);
+        alert("Looks like there is no such city in database, Sorry:)");
         document.getElementById('city').focus();
         return false;
     }else{
-        // return city_and_code;
         return city_and_code;
     }
 }
 
-// function handleCityRedirect(city){
-//     this.props.history.push(`/geo/${city}`);
-// }
-//
-// Index.propTypes = {
-//     history: PropTypes.object.isRequired
-// };
 
 export default Index;
